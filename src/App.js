@@ -5,6 +5,7 @@ export default class App extends Component {
     super();
     this.state = {
       vinNumber: "",
+      vinData: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,27 +16,51 @@ export default class App extends Component {
   }
 
   handleSubmit(event) {
-    alert("submitted");
+    console.log("submitted");
+    this.vindDcode();
     event.preventDefault();
+  }
+
+  vindDcode() {
+    fetch(
+      "https://vindecoder.p.rapidapi.com/decode_vin?vin=4F2YU09161KM33122",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "vindecoder.p.rapidapi.com",
+          "x-rapidapi-key":
+            "ef828baedbmshec5a9db5f027d34p138e67jsn979a08fe957d",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        // this.setState({
+        //   vinData: res.results,
+        // });
+        console.log(res);
+      });
   }
 
   componentDidMount() {
     console.log("Mounted");
   }
-  hand;
+
   render() {
     return (
       <section>
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter VIN number:</label>
-          <input
-            type="text"
-            placeholder={"1HGBH41JXMN109186"}
-            value={this.state.vinNumber}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Send" />
-        </form>
+        <section>
+          <form onSubmit={this.handleSubmit}>
+            <label>Enter VIN number:</label>
+            <input
+              type="text"
+              placeholder={"1HGBH41JXMN109186"}
+              value={this.state.vinNumber}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Send" />
+          </form>
+        </section>
       </section>
     );
   }
