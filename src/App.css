@@ -33,3 +33,20 @@ section{
   line-height: 1em;
 }
 
+.bottom-info{
+  display: flex;
+  flex-direction: row;
+  min-width: 60vw;;
+}
+
+.bottom-info aside{
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+margin: 10px;
+min-width: 25vh;
+max-width: 25vh;
+flex-grow: 1;
+}

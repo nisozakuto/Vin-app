@@ -130,7 +130,22 @@ fetchAndDecode(){
           <div className="vinInfo"><h4>Vin:</h4><p>{this.state.vin ? this.state.vin : "placeholder"}</p></div>
           <div className="vinInfo"><h4>Year:</h4><p>{this.state.year ? this.state.year : "placeholder"}</p></div>
         </section>
-      
+        <section className="bottom-info">
+        <aside>
+        <p>This app uses <a href="https://rapidapi.com/vinfreecheck/api/vin-decoder-1/details">vin-decoder</a> API to decode the information. </p>
+        </aside>
+        <aside>
+          <p>Please visit the repo at <a href="https://github.com/nisozakuto/Vin-app">GitHub</a></p>
+          </aside>
+          <aside>
+          <p>What are you waiting for, pull up your VIN number and decode it.</p>
+          </aside>
+          </section>
+      <footer>
+
+          <p>This app is made with React ♡</p>
+
+      </footer>
       </section>
     );
   }
